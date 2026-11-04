@@ -1,0 +1,30 @@
+class FullTimeLecturer : Lecturer
+{
+    private double baseSalary;
+    private double researchAllowance;
+    private double administrativeAllowance;
+
+    public FullTimeLecturer(string id, string name,
+        double baseSalary, double researchAllowance,
+        double administrativeAllowance)
+        : base(id, name)
+    {
+        this.baseSalary = baseSalary;
+        this.researchAllowance = researchAllowance;
+        this.administrativeAllowance = administrativeAllowance;
+    }
+
+    public override double CalculateSalary()
+    {
+        return baseSalary + researchAllowance +
+               administrativeAllowance;
+    }
+
+    public override void DisplayInformation()
+    {
+        Console.WriteLine("Full Time Lecturer");
+        Console.WriteLine("ID: " + GetLecturerId());
+        Console.WriteLine("Name: " + GetName());
+        Console.WriteLine("Salary: $" + CalculateSalary());
+    }
+}
