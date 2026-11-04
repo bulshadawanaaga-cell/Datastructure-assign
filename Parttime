@@ -1,0 +1,26 @@
+class PartTimeLecturer : Lecturer
+{
+    private double teachingHours;
+    private double hourlyRate;
+
+    public PartTimeLecturer(string id, string name,
+        double teachingHours, double hourlyRate)
+        : base(id, name)
+    {
+        this.teachingHours = teachingHours;
+        this.hourlyRate = hourlyRate;
+    }
+
+    public override double CalculateSalary()
+    {
+        return teachingHours * hourlyRate;
+    }
+
+    public override void DisplayInformation()
+    {
+        Console.WriteLine("Part Time Lecturer");
+        Console.WriteLine("ID: " + GetLecturerId());
+        Console.WriteLine("Name: " + GetName());
+        Console.WriteLine("Salary: $" + CalculateSalary());
+    }
+}
