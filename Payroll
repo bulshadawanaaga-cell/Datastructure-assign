@@ -1,0 +1,44 @@
+using System.Collections.Generic;
+
+class UniversityPayrollSystem
+{
+    private List<Lecturer> lecturers = new List<Lecturer>();
+
+    public void AddLecturer(Lecturer lecturer)
+    {
+        lecturers.Add(lecturer);
+    }
+
+    public void DisplayAllLecturers()
+    {
+        foreach (Lecturer lecturer in lecturers)
+        {
+            lecturer.DisplayInformation();
+            Console.WriteLine("----------------------");
+        }
+    }
+
+    public double CalculateTotalPayroll()
+    {
+        double total = 0;
+
+        foreach (Lecturer lecturer in lecturers)
+        {
+            total += lecturer.CalculateSalary();
+        }
+
+        return total;
+    }
+
+    public void DisplayHighPaidLecturers()
+    {
+        foreach (Lecturer lecturer in lecturers)
+        {
+            if (lecturer.CalculateSalary() > 2000)
+            {
+                lecturer.DisplayInformation();
+                Console.WriteLine("----------------------");
+            }
+        }
+    }
+}
