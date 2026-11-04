@@ -1,0 +1,35 @@
+class Program
+{
+    static void Main(string[] args)
+    {
+        UniversityPayrollSystem payroll =
+            new UniversityPayrollSystem();
+
+        FullTimeLecturer lecturer1 =
+            new FullTimeLecturer(
+                "L001", "Ahmed", 2000, 500, 300);
+
+        FullTimeLecturer lecturer2 =
+            new FullTimeLecturer(
+                "L002", "Mohamed", 1500, 300, 200);
+
+        PartTimeLecturer lecturer3 =
+            new PartTimeLecturer(
+                "L003", "Ibrahim", 40, 20);
+
+        payroll.AddLecturer(lecturer1);
+        payroll.AddLecturer(lecturer2);
+        payroll.AddLecturer(lecturer3);
+
+        Console.WriteLine("UNIVERSITY PAYROLL SYSTEM");
+        Console.WriteLine("=========================");
+
+        payroll.DisplayAllLecturers();
+
+        Console.WriteLine("Total Payroll: $" +
+            payroll.CalculateTotalPayroll());
+
+        Console.WriteLine("\nHIGH PAID LECTURERS");
+        payroll.DisplayHighPaidLecturers();
+    }
+}
